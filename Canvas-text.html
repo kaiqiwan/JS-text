@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas酷企鵝</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+        // let ctx01 = canvas.getContext("2d");
+        ctx.fillStyle = '#000';
+        // ctx01.fillStyle = '#000';
+        // let circle = function (x, y, radius) {
+        //     ctx.beginPath();
+        //     ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+        //     ctx.stroke();
+        // };
+        // ctx.lineWidth = 2;//更改線條粗細
+        // ctx.strokeStyle = 'Green';//更改邊框顏色
+        //.arc() 方法將圓弧添加到當前子路徑
+        //  ctx.arc(50, 50, 20, 0, Math.PI / 2, false);
+        // ctx.stroke(); //stroke()畫出圖形的邊框
+        // ctx.arc(150, 50, 20, 0, Math.PI * 2, false);//arc(X軸位置,Y軸位置,圓的半徑,圓的破口)
+
+        ctx.beginPath(); //beginPath()產生一個新路徑，產生後再使用繪圖指令來設定路徑
+        // ctx.moveTo(100, 100);
+        //moveTo() 方法可把窗口的左上角移動到一個指定的坐標
+        //lineTo(x, y)從目前繪圖點畫一條直線到指定的(x, y)座標點。
+        // ctx.lineTo(100, 60);
+        ctx.moveTo(160, 110);
+        // ctx.lineTo(180, 10);
+        ctx.quadraticCurveTo(150, 50, 180, 10);
+        ctx.quadraticCurveTo(190, -5, 200, 10);
+        ctx.lineTo(220, 60);
+        ctx.lineTo(240, 10);
+        ctx.quadraticCurveTo(250, -5, 260, 10);
+        ctx.lineTo(280, 60);
+        ctx.lineTo(300, 10);
+        ctx.quadraticCurveTo(310, -5, 320, 10);
+        ctx.lineTo(340, 60);
+        ctx.lineTo(380, 10);
+        ctx.quadraticCurveTo(400, 0, 400, 30);
+        ctx.quadraticCurveTo(405, 50, 400, 110);
+        // ctx.lineTo(400, 130);
+        // ctx.lineTo(160, 130);
+        // ctx.lineTo(160, 80);
+        // ctx.beginPath();
+        ctx.ellipse(
+            280, 150, 100, 130, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        // ctx.beginPath();
+        // ctx.quadraticCurveTo(430, 35, 320, 350);
+
+        ctx.bezierCurveTo(500, 200, 300, 330, 260, 280);
+        ctx.bezierCurveTo(200, 300, 150, 320, 60, 250);
+        ctx.bezierCurveTo(60, 250, 30, 220, 100, 210);
+        ctx.bezierCurveTo(100, 210, 110, 210, 170, 200);
+        // ctx.lineTo(250, 300)2
+        // ctx.quadraticCurveTo(300, 20, 350, 50);
+        // ctx.bezierCurveTo(200, 10, 400, 400, 150, 80);
+        // ctx.arc(100, 100, 40, 0, Math.PI, false);
+        // circle(100, 100, 10);
+        // ctx.lineTo(130, 10);
+        // ctx.lineTo(160, 60);
+        // ctx.lineTo(160, 100);
+        // ctx.lineTo(160, 100);
+
+        ctx.stroke();
+        // ctx01.stroke();
+        ctx.fill(); //fill()填滿路徑內容區域來產生圖形
+        //stroke()畫出圖形的邊框
+    </script>
+
+</body>
+
+</html>

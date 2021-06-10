@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas酷企鵝02</title>
+    <style>
+        canvas {
+            background: linear-gradient(rgba(37, 211, 205, 0.551) 5%, rgba(0, 106, 255, 0.66) 30%);
+            /* color: rgba(255, 255, 255, 0.605); */
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="1000" height="600"></canvas>
+
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+        ctx.fillStyle = '#fff';
+        // ctx.font = "40px Arial";
+        // ctx.fillText("夏天就是要玩耍!", 650, 100);
+
+
+        // 繪製圓形漸變
+        // var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+        // grd.addColorStop(0, "red");
+        // grd.addColorStop(1, "white");
+
+
+        // ctx.fillRect(10, 10, 150, 80);//繪製線性漸變
+        // let ctx01 = canvas.getContext("2d");
+
+        // ctx01.fillStyle = '#fff';
+        // let circle = function (x, y, radius) {
+        //     ctx.beginPath();
+        //     ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+        //     ctx.stroke();
+        // };
+        // ctx.lineWidth = 2;//更改線條粗細
+        // ctx.strokeStyle = 'Green';//更改邊框顏色
+        //.arc() 方法將圓弧添加到當前子路徑
+        //  ctx.arc(50, 50, 20, 0, Math.PI / 2, false);
+        // ctx.stroke(); //stroke()畫出圖形的邊框
+        // ctx.arc(150, 50, 20, 0, Math.PI * 2, false);//arc(X軸位置,Y軸位置,圓的半徑,圓的破口)
+
+
+        // 水花
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+
+        ctx.bezierCurveTo(15, 350, -20, 250, 50, 300);
+        ctx.bezierCurveTo(60, 280, 70, 240, 120, 300);
+        // ctx.bezierCurveTo(110, 280, 120, 250, 90, 310);
+        // ctx.stroke()
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+        ctx.ellipse(
+            110, 350, 50, 100, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+        ctx.ellipse(
+            110, 400, 20, 50, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+        ctx.ellipse(
+            20, 250, 20, 25, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.4)';
+        ctx.ellipse(
+            50, 200, 10, 15, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+
+        // 水花-上
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+        ctx.ellipse(
+            400, 20, 10, 15, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        ctx.ellipse(
+            350, 80, 10, 15, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        ctx.ellipse(
+            550, 80, 10, 15, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        ctx.ellipse(
+            450, 50, 15, 20, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+
+
+
+        ctx.beginPath(); //beginPath()產生一個新路徑，產生後再使用繪圖指令來設定路徑
+        ctx.fillStyle = '#000';
+        // ctx.moveTo(100, 100);
+        //moveTo() 方法可把窗口的左上角移動到一個指定的坐標
+        //lineTo(x, y)從目前繪圖點畫一條直線到指定的(x, y)座標點。
+        // ctx.lineTo(100, 60);
+        ctx.moveTo(160, 210);
+        // ctx.lineTo(180, 10);
+        ctx.quadraticCurveTo(150, 150, 180, 110);
+        ctx.quadraticCurveTo(190, 95, 200, 110);
+        ctx.lineTo(220, 160);
+        ctx.lineTo(240, 110);
+        ctx.quadraticCurveTo(250, 95, 260, 110);
+        ctx.lineTo(280, 160);
+        ctx.lineTo(300, 110);
+        ctx.quadraticCurveTo(310, 95, 320, 110);
+        ctx.lineTo(340, 160);
+        ctx.lineTo(380, 110);
+        ctx.quadraticCurveTo(400, 100, 400, 130);
+        ctx.quadraticCurveTo(405, 150, 400, 210);
+        ctx.fill();
+        // ctx.stroke();
+
+        // 臉
+        ctx.beginPath();
+        ctx.ellipse(
+            280, 250, 100, 130, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+        // ctx.stroke();
+
+        // 身體
+        // 為形狀添加陰影
+        // ctx.shadowColor = '#fff';
+        // ctx.shadowBlur = 15;
+        ctx.bezierCurveTo(500, 300, 300, 430, 260, 380);
+        ctx.bezierCurveTo(200, 400, 150, 420, 60, 350);
+        ctx.bezierCurveTo(60, 350, 30, 320, 100, 310);
+        ctx.bezierCurveTo(100, 310, 110, 310, 170, 300);
+        ctx.fill();
+        // ctx.stroke();
+
+        // 眼睛左
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        ctx.lineTo(180, 220);
+        ctx.lineTo(270, 220);
+        ctx.bezierCurveTo(280, 300, 170, 300, 180, 220);
+        // ctx.stroke();
+        ctx.fill();
+
+
+        // 眼睛右
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        ctx.lineTo(290, 220);
+        ctx.lineTo(380, 220);
+        ctx.bezierCurveTo(390, 300, 280, 300, 290, 220);
+        // ctx.stroke();
+        ctx.fill();
+
+        // 眼球左
+        ctx.beginPath();
+        ctx.lineWidth = "5";
+        ctx.lineTo(200, 250);
+        ctx.bezierCurveTo(225, 210, 250, 240, 255, 250);
+        ctx.stroke();
+
+        // 眼球右
+        ctx.beginPath();
+        ctx.lineWidth = "5";
+        ctx.lineTo(310, 250);
+        ctx.bezierCurveTo(335, 210, 360, 240, 365, 250);
+        ctx.stroke();
+
+        // 嘴巴
+        ctx.beginPath();
+        ctx.fillStyle = 'yellow';
+        ctx.lineWidth = "1";
+        ctx.lineTo(250, 300);
+        ctx.quadraticCurveTo(260, 300, 270, 280);
+        ctx.bezierCurveTo(270, 260, 282, 270, 280, 280);
+        ctx.quadraticCurveTo(285, 290, 295, 300);
+        ctx.bezierCurveTo(300, 300, 310, 305, 295, 310);
+        ctx.quadraticCurveTo(290, 310, 280, 330);
+        ctx.bezierCurveTo(280, 330, 278, 350, 270, 335);
+        ctx.quadraticCurveTo(260, 310, 250, 310);
+        ctx.bezierCurveTo(250, 310, 240, 305, 250, 300);
+        // ctx.stroke()
+        ctx.fill();
+
+        // 嘴巴-紅
+        ctx.beginPath();
+        ctx.fillStyle = 'red';
+        ctx.lineWidth = "1";
+        ctx.lineTo(255, 305);
+        ctx.quadraticCurveTo(265, 305, 275, 285);
+        ctx.quadraticCurveTo(275, 290, 292, 305);
+        ctx.quadraticCurveTo(280, 310, 275, 330);
+        ctx.quadraticCurveTo(270, 310, 255, 305);
+
+        // ctx.stroke()
+        ctx.fill();
+
+        // 嘴巴-紅-邊框
+        ctx.beginPath();
+        ctx.fillStyle = '#000';
+        ctx.lineWidth = "2";
+        ctx.lineTo(255, 305);
+        ctx.quadraticCurveTo(265, 305, 275, 285);
+        ctx.quadraticCurveTo(275, 290, 292, 305);
+        ctx.quadraticCurveTo(280, 310, 275, 330);
+        ctx.quadraticCurveTo(270, 310, 255, 305);
+
+        ctx.stroke()
+        // ctx.fill();
+
+        // 水花-前
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        // ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+
+        ctx.ellipse(
+            370, 300, 20, 20, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+        ctx.ellipse(
+            420, 320, 30, 40, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+        ctx.ellipse(
+            440, 280, 30, 70, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+        ctx.ellipse(
+            460, 250, 25, 25, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+        ctx.ellipse(
+            420, 250, 20, 25, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'gba(255, 255, 255, 0.5)';
+        ctx.shadowBlur = 50;
+        ctx.ellipse(
+            500, 200, 20, 25, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.shadowBlur = 50;
+        ctx.ellipse(
+            580, 280, 10, 15, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
+        ctx.shadowBlur = 50;
+        ctx.ellipse(
+            600, 250, 10, 15, Math.PI / 2,
+            0, 2 * Math.PI
+        );
+        ctx.fill();
+
+
+        // 水波紋
+        ctx.beginPath();
+        // ctx.fillStyle = '#fff';
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = "4";
+        // ctx.shadowColor = '#fff';
+        // ctx.shadowBlur = 15;
+        // ctx.createLinearGradient(50, 0, 400, 0);
+        // ctx.addColorStop(0, 'blue');
+        // ctx.addColorStop(0.5, '#fff');
+        // ctx.addColorStop(1, 'blue');
+        // ctx.shadowColor = '#fff';
+        // ctx.shadowBlur = 15;
+        ctx.lineTo(50, 50);
+        ctx.quadraticCurveTo(80, 40, 100, 40);
+        ctx.bezierCurveTo(120, 40, 160, 60, 200, 60);
+        ctx.bezierCurveTo(220, 60, 260, 20, 300, 40);
+        ctx.bezierCurveTo(320, 60, 350, 50, 400, 40);
+        ctx.stroke()
+
+
+        ctx.beginPath();
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = "4";
+        ctx.lineTo(430, 400);
+        ctx.quadraticCurveTo(460, 380, 500, 400);
+        ctx.quadraticCurveTo(550, 420, 600, 400);
+        ctx.quadraticCurveTo(650, 380, 680, 400);
+        ctx.stroke()
+
+        ctx.beginPath();
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = "4";
+        ctx.lineTo(520, 480);
+        ctx.quadraticCurveTo(550, 480, 600, 460);
+        ctx.quadraticCurveTo(650, 430, 680, 460);
+        ctx.quadraticCurveTo(700, 480, 750, 480);
+        ctx.quadraticCurveTo(800, 475, 820, 460);
+        ctx.quadraticCurveTo(850, 450, 900, 480);
+        ctx.stroke()
+
+        ctx.fillStyle = '#fff';
+        ctx.font = "40px Arial";
+        ctx.fillText("夏天就是要玩耍!", 650, 150);
+        ctx.shadowColor = 'yellow';
+        ctx.shadowBlur = 15;
+
+
+
+        // ctx.bezierCurveTo(200, 10, 400, 400, 150, 80);
+        // ctx.arc(100, 100, 40, 0, Math.PI, false);
+        // circle(100, 100, 10);
+        // ctx.lineTo(130, 10);
+
+
+        // ctx.stroke();
+        // ctx01.stroke();
+        // ctx.fill(); //fill()填滿路徑內容區域來產生圖形
+        //stroke()畫出圖形的邊框
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="Canvas" width="1000" height="1000"></canvas>
+    <script>
+        // 此範例需建立多個Canvas, 因此建立一個工廠函式
+        // 函式僅用於生產畫布，與主題無直接關係
+        function Canvas(width, height) {
+            const canvas = document.createElement('canvas')
+            canvas.width = width
+            canvas.height = height
+            return [canvas, canvas.getContext('2d')]
+        }
+
+        // 畫布1. 實心矩形
+        const width = 200
+        const height = 200
+        const [canvas1, ctx1] = Canvas(width, height)
+        ctx1.fillStyle = '#f1f1f1'
+        ctx1.fillRect(0, 0, width, height)
+
+        // 畫布2, 實心圓
+        const [canvas2, ctx2] = Canvas(100, 100)
+        ctx2.arc(50, 50, 30, 0, 2 * Math.PI, false)
+        ctx2.fillStyle = 'rgba(255, 0, 0, .7)'
+        ctx2.fill()
+
+        // 畫布3, 空心圓
+        const [canvas3, ctx3] = Canvas(50, 50)
+        ctx3.beginPath()
+        ctx3.arc(25, 25, 15, 0, 2 * Math.PI, false)
+        ctx3.strokeStyle = 'hsl(210, 100%, 50%)'
+        ctx3.lineWidth = '5'
+        ctx3.stroke()
+
+        // 畫布4, 三角形
+        const [canvas4, ctx4] = Canvas(100, 100)
+        ctx4.strokeStyle = 'green'
+        ctx4.beginPath()
+        ctx4.moveTo(15, 85)
+        ctx4.lineTo(50, 15)
+        ctx4.lineTo(85, 85)
+        ctx4.closePath()
+        ctx4.lineWidth = '5'
+        ctx4.stroke()
+
+        // 'source-over'
+        // 預設值，新圖蓋在舊圖之上
+        ctx4.globalCompositeOperation = 'source-over'
+        ctx4.drawImage(canvas3, 50, 50)
+
+        // 'destination-over'
+        // 舊圖蓋在新圖之上
+        ctx3.globalCompositeOperation = 'destination-over'
+        ctx3.drawImage(canvas2, 25, 15)
+
+        // 'xor'
+        // 新舊圖重疊部分其餘透明
+        ctx2.globalCompositeOperation = 'xor'
+        ctx2.drawImage(canvas1, 25, 15)
+
+        // 'destination-atop'
+        // 舊圖形只保留在新、舊圖形重疊的舊圖形區域，然後蓋在新圖形之上。
+        ctx1.globalCompositeOperation = 'destination-atop'
+        ctx1.drawImage(canvas4, 25, 15)
+
+        document.body.appendChild(canvas4)
+        document.body.appendChild(canvas3)
+        document.body.appendChild(canvas2)
+        document.body.appendChild(canvas1)
+    </script>
+
+
+</body>
+
+</html>

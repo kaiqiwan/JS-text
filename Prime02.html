@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworks-2 質數.公倍數</title>
+    <style>
+        ul#myList {
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            padding: 0;
+            border-radius: 3rem;
+            box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+                10px 10px 15px rgba(70, 70, 70, 0.12);
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 8px solid #ececec;
+            outline: none;
+        }
+
+        li {
+            list-style-type: none;
+            font-family: 'Airbnb Cereal App';
+            font-weight: 600;
+            font-size: 36px;
+            margin: 2rem;
+            width: 13%;
+            text-align: center;
+            border-radius: 1rem;
+            cursor: pointer;
+            color: #7a7a7a;
+            transition: 0.25s ease-in-out;
+        }
+
+        .checked {
+            box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.5),
+                5px 5px 15px rgba(70, 70, 70, 0.12),
+                inset -5px -5px 15px rgba(255, 255, 255, 0.5),
+                inset 5px 5px 15px rgba(70, 70, 70, 0.12);
+            color: #15e38a;
+        }
+
+        .checked2 {
+            box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.5),
+                5px 5px 15px rgba(70, 70, 70, 0.12),
+                inset -5px -5px 15px rgba(255, 255, 255, 0.5),
+                inset 5px 5px 15px rgba(70, 70, 70, 0.12);
+            color: crimson;
+        }
+
+        #multiNum {
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            padding: 0;
+            border-radius: 3rem;
+            box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+                10px 10px 15px rgba(70, 70, 70, 0.12);
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            border: 8px solid #ececec;
+            outline: none;
+        }
+    </style>
+</head>
+<ul id="myList"></ul>
+<ul id="multiNum"></ul>
+
+<body>
+    <script>
+        // 1. 求出 100 之內的質數，結合 DOM 元素的動態增減
+
+        let myList = document.querySelector('ul#myList');
+        // 質數是除了自己本身的數字的公倍數意外其他數字無法被自己整除
+        for (let i = 2; i <= 100; i++) {
+            let isPrime = true;//isPrime如果達成整數條件,就是true
+            for (let p = 2; p < i; p++) {
+                if (i % p === 0) {
+                    isPrime = false;
+                    // 如果是true的話要轉為false;因為可以整除,就是整數
+                }
+            }
+            // val() 方法返回或設置被選元素的值。
+            if (isPrime == true) {
+                let primeNum = document.createTextNode(`${i}`);
+                //createTextNode創建一個新的文字 字串
+                let li = document.createElement('li');
+                // createElement創造一個子元件
+                li.appendChild(primeNum);
+                // appendChild添加子元件
+                myList.appendChild(li);
+
+                li.addEventListener('click', function () {
+                    // addEventListener() 監聽使用者動作
+                    li.classList.toggle('checked');
+                    // 這裡的checked是一個class名稱
+                    // 使用 classList 屬性是取得元素 Class的一種便利方式
+                });
+            }
+        }
+
+        document.body.style['backgroundColor'] = '#ececec';
+        // 2. 求出 100 之內，3 跟 4 所有公倍數，結合 DOM 元素的動態增減
+        let multiNum = document.querySelector('ul#multiNum');
+
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 === 0 && i % 4 === 0) {
+                let mutiple = document.createTextNode(`${i}`);
+                //createTextNode創建一個新的文字 字串
+                let li = document.createElement('li');
+                // createElement創造一個子元件
+                li.appendChild(mutiple);
+                multiNum.appendChild(li);
+                // appendChild添加子元件
+
+                li.addEventListener('click', function () {
+                    // addEventListener() 監聽使用者動作
+                    li.classList.toggle('checked2');
+                });
+            }
+        }
+
+    </script>
+</body>
+
+</html>

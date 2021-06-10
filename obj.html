@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一、學生基本資料:</title>
+</head>
+
+<body>
+    <ul id="myarr"></ul>
+
+
+
+    <script>
+        let Alex = {
+            name: 'Alex',
+            age: 18,
+            eng_score: 87,
+            math_score: 90,
+        };
+        let Bill = {
+            name: 'Bill',
+            age: 19,
+            eng_score: 95,
+            math_score: 98,
+        };
+        let Cook = {
+            name: 'Cook',
+            age: 17,
+            eng_score: 100,
+            math_score: 73,
+        };
+        let arr = [Alex, Bill, Cook];
+        let score01 = function (a01) {
+            let c01 = 0;
+            for (let i = 0; i < a01.length; i++) {
+                c01 += a01[i].eng_score
+            }
+            return c01 / a01.length
+        }
+        let score02 = function (a02) {
+            let c02 = 0;
+            for (let i = 0; i < a02.length; i++) {
+                c02 += a02[i].math_score
+            }
+            return c02 / a02.length
+        }
+        console.log(score01(arr));
+        console.log(score02(arr));
+
+    </script>
+
+</body>
+
+</html>
